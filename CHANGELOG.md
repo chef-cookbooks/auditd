@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of auditd.
 
+## 0.1.1:
+
+* added RedHat support
+
 ## 0.1.0:
 
 * Initial release of auditd

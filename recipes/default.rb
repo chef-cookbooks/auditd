@@ -17,7 +17,9 @@
 # limitations under the License.
 #
 
-package "auditd"
+package "auditd" do
+  package_name node['auditd']['package']
+end
 
 service "auditd" do
   supports [ :restart, :reload, :status ]
