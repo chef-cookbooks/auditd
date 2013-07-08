@@ -18,3 +18,13 @@
 
 default['auditd']['ruleset'] = "default"
 default['auditd']['backlog'] = 320
+
+case platform
+when "redhat"
+  default['auditd']['package'] = "audit"
+when "ubuntu"
+  default['auditd']['package'] = "auditd"
+else
+  default['auditd']['package'] = "auditd"
+end
+
