@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of auditd.
 
+## 0.1.2:
+
+* excluded non-default rulesets for RedHat; they use a version-specific path that I can't find any easy way to determine programatically
+
 ## 0.1.1:
 
 * added RedHat support
