@@ -26,15 +26,20 @@ service "auditd" do
   action :enable
 end
 
-case node['auditd']['ruleset']
-when "capp"
-  auditd_builtins "capp"
-when "lspp"
-  auditd_builtins "lspp"
-when "nispom"
-  auditd_builtins "nispom"
-when "stig"
-  auditd_builtins "stig"
-else
+if node['platform'] == 'ubuntu'
+  case node['auditd']['ruleset']
+  when "capp"
+    auditd_builtins "capp"
+  when "lspp"
+    auditd_builtins "lspp"
+  when "nispom"
+    auditd_builtins "nispom"
+  when "stig"
+    auditd_builtins "stig"
+  else
+    auditd_ruleset "default.rules"
+  end
+else 
+  # RedHat uses version-specific paths for rule samples, we're only doing defaults for now
   auditd_ruleset "default.rules"
 end
