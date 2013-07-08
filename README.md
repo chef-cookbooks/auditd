@@ -14,12 +14,13 @@ linux kernel audit framework
 
 Requirements
 ============
-linux - any distro, only ubuntu has been tested
+linux - any distro, only ubuntu and RHEL 6 have been tested
 
 Attributes
 ==========
 * node['auditd']['ruleset'] - ruleset to use, either default or one of
   the provided examples
+	* NOTE: When using this recipe on RedHat systems, you're restricted to the "default" ruleset, as RedHat uses version-specific paths for the .rules which we can't programatically determine at this time.
 * node['auditd']['backlog'] - backlog size, default is 320 should be
 larger for busy systems
 
