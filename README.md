@@ -20,18 +20,19 @@ Attributes
 ==========
 * node['auditd']['ruleset'] - ruleset to use, either default or one of
   the provided examples
-	* NOTE: When using this recipe on RedHat systems, you're restricted to the "default" ruleset, as RedHat uses version-specific paths for the .rules which we can't programatically determine at this time.
+	* NOTE: When using this recipe on RedHat systems, you're restricted to the "default" or "cis" rulesets, as RedHat uses version-specific paths for the .rules which we can't programatically determine at this time.
 * node['auditd']['backlog'] - backlog size, default is 320 should be
 larger for busy systems
 
 Usage
 =====
-Set the correct attribute based on the rulesset desired, one of:
+Set the correct attribute based on the ruleset desired, one of:
 
 * "capp" : Controlled Access Protection Profile
 * "lspp" : Labeled Security Protection Profile
 * "nispom" : National Industrial Security Program Operating Manual (NISPOM) 
 * "stig" : Security Technical Implementation Guides 
+* "cis"  : Center for Internet Security auditd recommendations
 
 TODO
 ====
