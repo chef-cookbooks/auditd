@@ -17,29 +17,30 @@
 # limitations under the License.
 #
 
-package "auditd" do
-  package_name node['auditd']['package']
+case node.platform
+when "redhat"
+  package "audit"
+else
+  package "auditd"
 end
+
 
 service "auditd" do
   supports [ :restart, :reload, :status ]
   action :enable
 end
 
-if node['platform'] == 'ubuntu'
-  case node['auditd']['ruleset']
-  when "capp"
-    auditd_builtins "capp"
-  when "lspp"
-    auditd_builtins "lspp"
-  when "nispom"
-    auditd_builtins "nispom"
-  when "stig"
-    auditd_builtins "stig"
-  else
-    auditd_ruleset "default.rules"
-  end
-else 
-  # RedHat uses version-specific paths for rule samples, we're only doing defaults for now
+case node['auditd']['ruleset']
+when "capp"
+  auditd_builtins "capp"
+when "lspp"
+  auditd_builtins "lspp"
+when "nispom"
+  auditd_builtins "nispom"
+when "stig"
+  auditd_builtins "stig"
+when "cis"
+  auditd_ruleset "cis.rules"
+else
   auditd_ruleset "default.rules"
 end
