@@ -24,23 +24,7 @@ else
   package "auditd"
 end
 
-
 service "auditd" do
   supports [ :restart, :reload, :status ]
   action :enable
-end
-
-case node['auditd']['ruleset']
-when "capp"
-  auditd_builtins "capp"
-when "lspp"
-  auditd_builtins "lspp"
-when "nispom"
-  auditd_builtins "nispom"
-when "stig"
-  auditd_builtins "stig"
-when "cis"
-  auditd_ruleset "cis.rules"
-else
-  auditd_ruleset "default.rules"
 end
