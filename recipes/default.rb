@@ -17,8 +17,8 @@
 # limitations under the License.
 #
 
-case node.platform
-when "redhat"
+case node.platform_family
+when "rhel"
   package "audit"
 else
   package "auditd"
