@@ -1,5 +1,6 @@
 #
 # Cookbook Name:: auditd
+# Recipe:: default
 #
 # Copyright 2012, Heavy Water Operations, LLC.
 #
@@ -16,5 +17,19 @@
 # limitations under the License.
 #
 
-default['auditd']['ruleset'] = "default.rules"
-default['auditd']['backlog'] = 320
+include_recipe "auditd::default"
+
+case node['auditd']['ruleset']
+when "capp"
+  auditd_builtins "capp"
+when "lspp"
+  auditd_builtins "lspp"
+when "nispom"
+  auditd_builtins "nispom"
+when "stig"
+  auditd_builtins "stig"
+when "cis"
+  auditd_ruleset "cis.rules"
+else
+  auditd_ruleset node['auditd']['ruleset']
+end
