@@ -26,13 +26,22 @@ larger for busy systems
 
 Usage
 =====
-Set the node['auditd']['ruleset'] attribute to the ruleset desired. One of:
+If you're using one of the default rulesets set the correct attribute
+based on the ruleset desired, one of:
 
 * "capp" : Controlled Access Protection Profile
 * "lspp" : Labeled Security Protection Profile
 * "nispom" : National Industrial Security Program Operating Manual (NISPOM) 
 * "stig" : Security Technical Implementation Guides 
 * "cis"  : Center for Internet Security auditd recommendations
+
+And include `recipe[auditd::rules]` in your run list. You can also set
+the attribute `node['auditd']['ruleset']` to the name of a custom rule
+template to be used instead of one of the default rules.
+
+If you are using the recipe from a wrapper cookbook, include the
+default recipe `recipe[auditd]` to setup the service and use the
+`auditd_ruleset` resource to place your custom rule template.
 
 TODO
 ====
