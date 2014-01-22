@@ -20,3 +20,7 @@ suites:
 - name: default
   run_list:
   - recipe[auditd]
+
+- name: rules
+  run_list:
+  - recipe[auditd::rules]

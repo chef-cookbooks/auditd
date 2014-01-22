@@ -16,5 +16,5 @@
 # limitations under the License.
 #
 
-default['auditd']['ruleset'] = "default"
+default['auditd']['ruleset'] = "default.rules"
 default['auditd']['backlog'] = 320

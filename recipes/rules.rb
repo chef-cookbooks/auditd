@@ -17,14 +17,19 @@
 # limitations under the License.
 #
 
-case node.platform_family
-when "rhel"
-  package "audit"
-else
-  package "auditd"
-end
+include_recipe "auditd::default"
 
-service "auditd" do
-  supports [ :restart, :reload, :status ]
-  action :enable
+case node['auditd']['ruleset']
+when "capp"
+  auditd_builtins "capp"
+when "lspp"
+  auditd_builtins "lspp"
+when "nispom"
+  auditd_builtins "nispom"
+when "stig"
+  auditd_builtins "stig"
+when "cis"
+  auditd_ruleset "cis.rules"
+else
+  auditd_ruleset node['auditd']['ruleset']
 end
