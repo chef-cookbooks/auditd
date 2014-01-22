@@ -45,5 +45,8 @@ default recipe `recipe[auditd]` to setup the service and use the
 
 TODO
 ====
-Ideally the auditd_rulset resource should make use of a data bag
+Ideally the auditd_ruleset resource could make use of a data bag
 search to build the data driven ruleset
+
+Make builtins an array attribute to allow user updates without
+cookbook release.
