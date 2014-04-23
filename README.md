@@ -20,7 +20,6 @@ Attributes
 ==========
 * node['auditd']['ruleset'] - ruleset to use, either "default" (the default if
   unset) or one of the provided examples
-	* NOTE: When using this recipe on RHEL systems, you're restricted to the "default" or "cis" rulesets, as RHEL uses version-specific paths for the .rules which we can't programatically determine at this time.
 * node['auditd']['backlog'] - backlog size, default is 320 should be
 larger for busy systems
 
