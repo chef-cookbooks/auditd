@@ -12,7 +12,7 @@ platforms:
 - name: centos-6.4
   run_list:
   - recipe[yum]
-- name: centos-5.9
+- name: centos-5.10
   run_list:
   - recipe[yum]
 
@@ -24,3 +24,10 @@ suites:
 - name: rules
   run_list:
   - recipe[auditd::rules]
+
+- name: stig-rules
+  run_list:
+  - recipe[auditd::rules]
+  attributes:
+    auditd:
+      ruleset: "stig"

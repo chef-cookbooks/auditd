@@ -18,11 +18,21 @@
 #
 
 # provider for installing audit templates provided by auditd package
+
 action :create do
-  execute "installing ruleset #{new_resource.name}" do
-    command "zcat /usr/share/doc/auditd/examples/#{new_resource.name}.rules.gz\
+  case node['platform_family']
+  when 'rhel'
+    auditd_version = %x{/sbin/aureport -v}.split(" ").last
+
+    remote_file "/etc/audit/audit.rules" do
+      source "file:///usr/share/doc/audit-#{auditd_version}/#{new_resource.name}.rules"
+      notifies :restart, 'service[auditd]'
+    end
+  else
+    execute "installing ruleset #{new_resource.name}" do
+      command "zcat /usr/share/doc/auditd/examples/#{new_resource.name}.rules.gz\
  > /etc/audit/audit.rules"
-    notifies :restart, resources( :service => "auditd" )
+      notifies :restart, 'service[auditd]'
+    end
   end
 end
-
