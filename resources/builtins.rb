@@ -1,4 +1,4 @@
-#
+# Encoding: utf-8
 # Cookbook Name:: auditd
 # Resource:: auditd_builtins
 #
@@ -26,4 +26,4 @@ def initialize(*args)
   @action = :create
 end
 
-attribute :name, :kind_of => String, :name_attribute => true
+attribute :name, kind_of: String, name_attribute: true

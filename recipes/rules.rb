@@ -1,4 +1,4 @@
-#
+# Encoding: utf-8
 # Cookbook Name:: auditd
 # Recipe:: default
 #
@@ -17,19 +17,19 @@
 # limitations under the License.
 #
 
-include_recipe "auditd::default"
+include_recipe 'auditd::default'
 
 case node['auditd']['ruleset']
-when "capp"
-  auditd_builtins "capp"
-when "lspp"
-  auditd_builtins "lspp"
-when "nispom"
-  auditd_builtins "nispom"
-when "stig"
-  auditd_builtins "stig"
-when "cis"
-  auditd_ruleset "cis.rules"
+when 'capp'
+  auditd_builtins 'capp'
+when 'lspp'
+  auditd_builtins 'lspp'
+when 'nispom'
+  auditd_builtins 'nispom'
+when 'stig'
+  auditd_builtins 'stig'
+when 'cis'
+  auditd_ruleset 'cis.rules'
 else
   auditd_ruleset node['auditd']['ruleset']
 end
