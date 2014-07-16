@@ -1,4 +1,4 @@
-#
+# Encoding: utf-8
 # Cookbook Name:: auditd
 # Recipe:: default
 #
@@ -17,16 +17,16 @@
 # limitations under the License.
 #
 
-case node.platform_family
-when "rhel"
-  package "audit"
-when "fedora"
-  package "audit"
+case node['platform_family']
+when 'rhel'
+  package 'audit'
+when 'fedora'
+  package 'audit'
 else
-  package "auditd"
+  package 'auditd'
 end
 
-service "auditd" do
-  supports [ :restart, :reload, :status ]
+service 'auditd' do
+  supports [:restart, :reload, :status]
   action :enable
 end

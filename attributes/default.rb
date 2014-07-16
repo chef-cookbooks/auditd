@@ -1,4 +1,4 @@
-#
+# Encoding: utf-8
 # Cookbook Name:: auditd
 #
 # Copyright 2012, Heavy Water Operations, LLC.
@@ -16,5 +16,5 @@
 # limitations under the License.
 #
 
-default['auditd']['ruleset'] = "default.rules"
+default['auditd']['ruleset'] = 'default.rules'
 default['auditd']['backlog'] = 320

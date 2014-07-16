@@ -1,4 +1,4 @@
-#
+# Encoding: utf-8
 # Cookbook Name:: auditd
 # Provider:: auditd_builtins
 #
@@ -22,7 +22,6 @@ action :create do
   execute "installing ruleset #{new_resource.name}" do
     command "zcat /usr/share/doc/auditd/examples/#{new_resource.name}.rules.gz\
  > /etc/audit/audit.rules"
-    notifies :restart, resources( :service => "auditd" )
+    notifies :restart, 'service[auditd]'
   end
 end
-
