@@ -20,6 +20,8 @@
 case node.platform_family
 when "rhel"
   package "audit"
+when "fedora"
+  package "audit"
 else
   package "auditd"
 end
