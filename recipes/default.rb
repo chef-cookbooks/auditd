@@ -18,12 +18,10 @@
 #
 
 case node['platform_family']
-when 'rhel'
-  package 'audit'
-when 'fedora'
-  package 'audit'
-else
+when 'debian'
   package 'auditd'
+else
+  package 'audit'
 end
 
 service 'auditd' do
