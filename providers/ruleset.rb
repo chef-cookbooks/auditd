@@ -18,9 +18,12 @@
 #
 
 # provider for installing audit rules from a template
+
 action :create do
-  template '/etc/audit/audit.rules' do
+  t = template '/etc/audit/audit.rules' do
     source "#{new_resource.name}.erb"
-    notifies :restart, resources(service: 'auditd')
+    notifies :run, 'execute[auditctl -R]', :immediately
   end
+
+  new_resource.updated_by_last_action(t.updated_by_last_action?)
 end

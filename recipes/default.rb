@@ -25,6 +25,11 @@ else
 end
 
 service 'auditd' do
-  supports [:restart, :reload, :status]
-  action :enable
+  supports [:reload, :status]
+  action [:enable, :start]
+end
+
+execute 'auditctl -R' do
+  command 'auditctl -R /etc/audit/audit.rules'
+  action :nothing
 end
