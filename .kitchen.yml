@@ -5,29 +5,35 @@ driver:
 platforms:
 - name: ubuntu-12.04
   run_list:
-  - recipe[apt]
+    - recipe[apt]
 - name: ubuntu-10.04
   run_list:
-  - recipe[apt]
+    - recipe[apt]
+- name: centos-7.0
+  run_list:
+    - recipe[yum]
 - name: centos-6.4
   run_list:
-  - recipe[yum]
+    - recipe[yum]
 - name: centos-5.10
   run_list:
-  - recipe[yum]
+    - recipe[yum]
 
 suites:
 - name: default
   run_list:
-  - recipe[auditd]
+    - recipe[auditd]
 
 - name: rules
   run_list:
-  - recipe[auditd::rules]
+    - recipe[auditd::rules]
 
 - name: stig-rules
   run_list:
-  - recipe[auditd::rules]
+    - recipe[auditd::rules]
   attributes:
     auditd:
       ruleset: "stig"
+  excludes:
+    - ubuntu-12.04
+    - ubuntu-10.04
