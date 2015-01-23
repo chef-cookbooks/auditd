@@ -34,3 +34,6 @@ suites:
   attributes:
     auditd:
       ruleset: "stig"
+  excludes:
+    - ubuntu-12.04
+    - ubuntu-10.04
