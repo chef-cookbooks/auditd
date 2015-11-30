@@ -1,21 +1,16 @@
----
 driver:
   name: vagrant
 
-platforms:
-- name: ubuntu-12.04
-  run_list:
-  - recipe[apt]
-- name: ubuntu-10.04
-  run_list:
-  - recipe[apt]
-- name: centos-6.4
-  run_list:
-  - recipe[yum]
-- name: centos-5.10
-  run_list:
-  - recipe[yum]
+provisioner:
+  name: chef_zero
 
+platforms:
+  - name: ubuntu-12.04
+    run_list: apt::default
+  - name: ubuntu-14.04
+    run_list: apt::default
+  - name: centos-6.7
+  - name: centos-5.11
 suites:
 - name: default
   run_list:

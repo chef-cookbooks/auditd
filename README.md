@@ -1,5 +1,6 @@
-Description
-===========
+# auditd Cookbook
+[![Cookbook Version](https://img.shields.io/cookbook/v/auditd.svg)](https://supermarket.chef.io/cookbooks/auditd)
+
 A simple cookbook to install auditd and provided rulesets. Rulesets
 included in the OS auditd/audit package as examples are based on 4
 established standards:
