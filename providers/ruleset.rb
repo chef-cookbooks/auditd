@@ -21,6 +21,7 @@
 action :create do
   template '/etc/audit/audit.rules' do
     source "#{new_resource.name}.erb"
+    cookbook new_resource.cookbook if new_resource.cookbook
     notifies :restart, resources(service: 'auditd')
   end
 end

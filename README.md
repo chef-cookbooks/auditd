@@ -30,8 +30,8 @@ based on the ruleset desired, one of:
 
 * "capp" : Controlled Access Protection Profile
 * "lspp" : Labeled Security Protection Profile
-* "nispom" : National Industrial Security Program Operating Manual (NISPOM) 
-* "stig" : Security Technical Implementation Guides 
+* "nispom" : National Industrial Security Program Operating Manual (NISPOM)
+* "stig" : Security Technical Implementation Guides
 * "cis"  : Center for Internet Security auditd recommendations
 
 And include `recipe[auditd::rules]` in your run list. You can also set
@@ -40,7 +40,11 @@ template to be used instead of one of the default rules.
 
 If you are using the recipe from a wrapper cookbook, include the
 default recipe `recipe[auditd]` to setup the service and use the
-`auditd_ruleset` resource to place your custom rule template.
+`auditd_ruleset` resource to place your rule template of choice.
+
+If you are not satisfied with any of the provided templates, you can
+specify the `cookbook` attribute in `auditd_ruleset` to use your own
+set of rules. In this case, do not include `recipe[auditd::rules]`.
 
 TODO
 ====
