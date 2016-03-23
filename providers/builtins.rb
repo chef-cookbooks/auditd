@@ -22,10 +22,10 @@
 action :create do
   case node['platform_family']
   when 'rhel'
-    auditd_version = `/sbin/aureport -v`.split(' ').last
+    #auditd_version = `/sbin/aureport -v`.split(' ').last
 
-    remote_file '/etc/audit/audit.rules' do
-      source "file:///usr/share/doc/audit-#{auditd_version}/#{new_resource.name}.rules"
+    template "/etc/audit/audit.rules" do
+      source "#{new_resource.name}.rules.erb"
       notifies :restart, 'service[auditd]'
     end
   else
