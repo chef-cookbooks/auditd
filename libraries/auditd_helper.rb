@@ -1,8 +1,7 @@
 # Encoding: utf-8
 # Cookbook Name:: auditd
-# Recipe:: default
 #
-# Copyright 2012, Heavy Water Operations, LLC.
+# Copyright 2016, PagerDuty
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,13 +14,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-extend AuditD::Helper
-
-package auditd_package_name_for(node['platform_family'])
-
-service 'auditd' do
-  supports [:restart, :reload, :status]
-  action :enable
+module AuditD
+  module Helper
+    def auditd_package_name_for platform_family
+      case platform_family
+      when 'rhel'
+        'audit'
+      when 'fedora'
+        'audit'
+      else
+        'auditd'
+      end
+    end
+  end
 end
