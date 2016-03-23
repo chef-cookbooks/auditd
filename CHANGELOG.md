@@ -2,6 +2,15 @@
 
 This file is used to list changes made in each version of auditd.
 
+## 0.1.8:
+
+* add coc and contributing documents
+* update gitignore list for some chef related files
+* update supermarket uri
+* use correct restart command when under systemd on rhel
+* better rule definition support for rhel systems that no longer ship with examples
+* add test suite for capp rules
+
 ## 0.1.2:
 
 * excluded non-default rulesets for RedHat; they use a version-specific path that I can't find any easy way to determine programatically
