@@ -1,8 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-site 'http://community.opscode.com/api/v1'
+site 'http://supermarket.chef.io/api/v1'
+
+cookbook 'auditd', path: '.'
 
 cookbook 'apt'
-cookbook 'ubuntu'
 cookbook 'yum'
-cookbook 'auditd', path: '.'
