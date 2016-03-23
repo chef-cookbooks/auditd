@@ -39,3 +39,10 @@ suites:
   attributes:
     auditd:
       ruleset: "stig"
+
+- name: capp-rules
+  run_list:
+  - recipe[auditd::rules]
+  attributes:
+    auditd:
+      ruleset: "capp"
