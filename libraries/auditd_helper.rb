@@ -17,7 +17,7 @@
 
 module AuditD
   module Helper
-    def auditd_package_name_for platform_family
+    def auditd_package_name_for(platform_family)
       case platform_family
       when 'rhel'
         'audit'
