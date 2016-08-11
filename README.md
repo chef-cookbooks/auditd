@@ -47,6 +47,8 @@ If you are not satisfied with any of the provided templates, you can
 specify the `cookbook` attribute in `auditd_ruleset` to use your own
 set of rules. In this case, do not include `recipe[auditd::rules]`.
 
+Use the `auditd::remove` recipe to uninstall auditd.
+
 TODO
 ====
 Ideally the auditd_ruleset resource could make use of a data bag
