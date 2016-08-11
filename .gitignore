@@ -35,15 +35,13 @@ doc/
 .idea
 
 #chef stuff
-Berksfile
 Berksfile.lock
-Cheffile.lock
 .kitchen
 .kitchen.local.yml
-.librarian/
 vendor/
 .coverage/
 .zero-knife.rb
+Policyfile.lock.json
 
 #vagrant stuff
 .vagrant/
