@@ -1,8 +1,0 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-site 'http://supermarket.chef.io/api/v1'
-
-cookbook 'auditd', path: '.'
-
-cookbook 'apt'
-cookbook 'yum'
