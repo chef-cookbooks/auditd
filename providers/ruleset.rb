@@ -1,4 +1,4 @@
-# Encoding: utf-8
+#
 # Cookbook Name:: auditd
 # Provider:: auditd_ruleset
 #

@@ -1,4 +1,4 @@
-# Encoding: utf-8
+#
 # Cookbook Name:: auditd
 # Resource:: auditd_builtins
 #
@@ -19,11 +19,5 @@
 
 actions :create
 default_action :create
-
-# for 10.8 and earlier
-def initialize(*args)
-  super
-  @action = :create
-end
 
 attribute :name, kind_of: String, name_attribute: true
