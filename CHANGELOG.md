@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of auditd.
 
+## 1.0.0 (2016-09-08)
+
+- Testing updates
+- Require Chef 12
+
 ## 0.2.0 (2016-08-11)
 
 - Add uninstall/remove support
