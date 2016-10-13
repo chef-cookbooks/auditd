@@ -30,6 +30,7 @@ The OS package provides the client side tools for working with the linux kernel 
 
 - node['auditd']['ruleset'] - ruleset to use, either "default" (the default if unset) or one of the provided examples
 - node['auditd']['backlog'] - backlog size, default is 320 should be larger for busy systems
+- node['auditd']['additional_lines'] - (array of strings) enables the addition of extra lines to the rendered ERB template that you may wish to include as well as those in the selected rulebase.
 
 # Usage
 
