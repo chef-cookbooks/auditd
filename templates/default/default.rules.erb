@@ -11,3 +11,7 @@
 -b <%= node['auditd']['backlog'] %>
 
 # Feel free to add below this line. See auditctl man page
+
+<% node['auditd']['additional_lines'].each do |line| %>
+<%= line %>
+<% end %>
