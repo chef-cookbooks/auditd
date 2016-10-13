@@ -18,3 +18,4 @@
 
 default['auditd']['ruleset'] = 'default.rules'
 default['auditd']['backlog'] = 320
+default['auditd']['additional_lines'] = ['']

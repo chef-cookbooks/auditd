@@ -7,6 +7,12 @@
 ## First rule - delete all
 -D
 
+# Feel free to add below this line. See auditctl man page
+
+<% node['auditd']['additional_lines'].each do |line| %>
+<%= line %>
+<% end %>
+
 ## Increase the buffers to survive stress events.
 ## Make this bigger for busy systems
 -b 8192
@@ -25,12 +31,12 @@
 ##
 ##
 ## (GEN002880: CAT II) The IAO will ensure the auditing software can
-## record the following for each audit event: 
-##- Date and time of the event 
-##- Userid that initiated the event 
-##- Type of event 
-##- Success or failure of the event 
-##- For I&A events, the origin of the request (e.g., terminal ID) 
+## record the following for each audit event:
+##- Date and time of the event
+##- Userid that initiated the event
+##- Type of event
+##- Success or failure of the event
+##- For I&A events, the origin of the request (e.g., terminal ID)
 ##- For events that introduce an object into a user’s address space, and
 ##  for object deletion events, the name of the object, and in MLS
 ##  systems, the object’s security level.
@@ -71,7 +77,7 @@
 
 ## (GEN002920: CAT III) The IAO will ensure audit files are backed up
 ## no less than weekly onto a different system than the system being
-## audited or backup media.  
+## audited or backup media.
 ##
 ## Can be done with cron script
 
@@ -110,7 +116,7 @@
 -a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=500 -F auid!=4294967295 -k perm_mod
 -a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=500 -F auid!=4294967295 -k perm_mod
 
-##- Unauthorized access attempts to files (unsuccessful) 
+##- Unauthorized access attempts to files (unsuccessful)
 -a always,exit -F arch=b32 -S creat -S open -S openat -S open_by_handle_at -S truncate -F exit=-EACCES -F auid>=500 -F auid!=4294967295 -k access
 -a always,exit -F arch=b32 -S creat -S open -S openat -S open_by_handle_at -S truncate -F exit=-EPERM -F auid>=500 -F auid!=4294967295 -k access
 -a always,exit -F arch=b64 -S creat -S open -S openat -S open_by_handle_at -S truncate -F exit=-EACCES -F auid>=500 -F auid!=4294967295 -k access
@@ -120,7 +126,7 @@
 ## use find /bin -type f -perm -04000 2>/dev/null and put all those files in a rule like this
 -a always,exit -F path=/bin/ping -F perm=x -F auid>=500 -F auid!=4294967295 -k privileged
 
-##- Use of print command (unsuccessful and successful) 
+##- Use of print command (unsuccessful and successful)
 
 ##- Export to media (successful)
 ## You have to mount media before using it. You must disable all automounting
@@ -135,9 +141,9 @@
 -a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -F auid>=500 -F auid!=4294967295 -k delete
 -a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=500 -F auid!=4294967295 -k delete
 
-##- All system administration actions 
+##- All system administration actions
 ##- All security personnel actions
-## 
+##
 ## Look for pam_tty_audit and add it to your login entry point's pam configs.
 ## If that is not found, use sudo which should be patched to record its
 ## commands to the audit system. Do not allow unrestricted root shells or
@@ -177,11 +183,11 @@
 ## Optional - admin may be abusing power by looking in user's home dir
 #-a always,exit -F dir=/home -F uid=0 -F auid>=500 -F auid!=4294967295 -C auid!=obj_uid -F key=power-abuse
 
-## Optional - log container creation  
+## Optional - log container creation
 #-a always,exit -F arch=b32 -S clone -F a0&2080505856 -k container-create
 #-a always,exit -F arch=b64 -S clone -F a0&2080505856 -k container-create
 
-## Optional - watch for containers that may change their configuration 
+## Optional - watch for containers that may change their configuration
 #-a always,exit -F arch=b32 -S setns -S unshare -k container-config
 #-a always,exit -F arch=b64 -S setns -S unshare -k container-config
 
@@ -190,4 +196,3 @@
 
 ## Make the configuration immutable - reboot is required to change audit rules
 -e 2
-

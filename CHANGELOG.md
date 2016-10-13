@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of auditd.
 
+
+## 1.0.1 (2016-10-13)
+
+- Add new array attribute to hold optional additional lines to add into ERB
+- Fix issue where missing system directories on Ubuntu resulted in only half the CIS rulebase to load
+
 ## 1.0.0 (2016-09-08)
 
 - Testing updates

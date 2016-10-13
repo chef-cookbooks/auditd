@@ -10,6 +10,12 @@
 ## Remove any existing rules
 -D
 
+# Feel free to add below this line. See auditctl man page
+
+<% node['auditd']['additional_lines'].each do |line| %>
+<%= line %>
+<% end %>
+
 ## Increase buffer size to handle the increased number of messages.
 ## Feel free to increase this if the machine panic's
 -b 8192
@@ -76,10 +82,10 @@
 -a always,exit -F arch=b64 -S rename -S renameat -S truncate -S chmod -S setxattr -S lsetxattr -S removexattr -S lremovexattr -F exit=-EPERM -k mods
 
 ## unsuccessful deletion
--a always,exit -F arch=b32 -S rmdir -S unlink -S unlinkat -F exit=-EACCES -k delete 
--a always,exit -F arch=b64 -S rmdir -S unlink -S unlinkat -F exit=-EACCES -k delete 
--a always,exit -F arch=b32 -S rmdir -S unlink -S unlinkat -F exit=-EPERM -k delete 
--a always,exit -F arch=b64 -S rmdir -S unlink -S unlinkat -F exit=-EPERM -k delete 
+-a always,exit -F arch=b32 -S rmdir -S unlink -S unlinkat -F exit=-EACCES -k delete
+-a always,exit -F arch=b64 -S rmdir -S unlink -S unlinkat -F exit=-EACCES -k delete
+-a always,exit -F arch=b32 -S rmdir -S unlink -S unlinkat -F exit=-EPERM -k delete
+-a always,exit -F arch=b64 -S rmdir -S unlink -S unlinkat -F exit=-EPERM -k delete
 
 ## Audit 1, 1(d) Changes in user authenticators.
 ## Covered by patches to libpam, passwd, and shadow-utils
