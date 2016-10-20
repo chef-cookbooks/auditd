@@ -2,7 +2,7 @@
 ## This file contains a sample audit configuration.  Combined with the
 ## system events that are audited by default, this set of rules causes
 ## audit to generate records for the auditable events specified by the
-## Labeled Security Protection Profile (LSPP).
+## Controlled Access Protection Profile (CAPP).
 ##
 ## It should be noted that this set of rules identifies directories by
 ## leaving a / at the end of the path.
@@ -40,17 +40,16 @@
 ## audited events
 ##
 -w /etc/audit/ -p wa -k CFG_audit
--w /etc/sysconfig/auditd  -p wa -k CFG_auditd.conf
+-w /etc/default/auditd  -p wa -k CFG_auditd.conf
 -w /etc/libaudit.conf -p wa -k CFG_libaudit.conf
 -w /etc/audisp/ -p wa -k CFG_audisp
 
 ##
-## FDP_ACF.1, FMT_MSA.1, FMT_MTD.1, FMT_REV.1, FDP_ETC.1, FDP_ITC.2
+## FDP_ACF.1, FMT_MSA.1, FMT_MTD.1, FMT_REV.1
 ## all requests to perform an operation on an object covered by the
 ## SFP; all modifications of the values of security attributes;
-## modifications to TSF data; attempts to revoke security attributes;
-## all attempts to export information; all attempts to import user
-## data, including any security attributes
+## modifications to TSF data; attempts to revoke security attributes
+##
 
 ## Objects covered by the Security Functional Policy (SFP) are:
 ## -File system objects (files, directories, special files, extended attributes)
@@ -88,8 +87,8 @@
 
 ## Extended attribute operations
 ## Enable if you are interested in these events
--a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr
--a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr
+#-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr
+#-a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr
 
 ## special files
 -a always,exit -F arch=b32 -S mknod -S mknodat
@@ -158,33 +157,6 @@
 #-a always,exit -S clone2
 
 ##
-## FDP_ETC.2
-## Export of Labeled User Data
-##
-## Printing
--w /etc/cups/ -p wa -k CFG_cups
--w /etc/init.d/cups -p wa -k CFG_initd_cups
-
-##
-## FDP_ETC.2, FDP_ITC.2
-## Export/Import of Labeled User Data
-##
-## Networking
--w /etc/netlabel.rules -p wa -k CFG_netlabel.rules
--w /etc/ipsec.conf -p wa -k CFG_ipsec.conf
--w /etc/ipsec.d/ -p wa -k CFG_ipsec.conf
--w /etc/ipsec.secrets -p wa -k CFG_ipsec.secrets
-
-##
-## FDP_IFC.1
-## Mandatory Access Control Policy
-##
--w /etc/selinux/config -p wa -k CFG_selinux_config
--w /etc/selinux/mls/ -p wa -k CFG_MAC_policy
--w /usr/share/selinux/mls/ -p wa -k CFG_MAC_policy
--w /etc/selinux/semanage.conf -p wa -k CFG_MAC_policy
-
-##
 ## FMT_MSA.3
 ## modifications of the default setting of permissive or restrictive
 ## rules, all modifications of the initial value of security attributes
@@ -211,15 +183,6 @@
 ## set-up of trusted channel
 ##
 -w /usr/sbin/stunnel -p x
-
-##
-## FPT_TST.1 Self Test
-## aide is used to verify integrity of data and executables
-##
--w /etc/aide.conf -p wa -k CFG_aide.conf
--w /var/lib/aide/aide.db.gz -k CFG_aide.db
--w /var/lib/aide/aide.db.new.gz -k CFG_aide.db
--w /var/log/aide/ -p wa -k CFG_aide.log
 
 ##
 ## Security Databases
@@ -252,13 +215,13 @@
 
 ## network configuration
 -w /etc/hosts -p wa -k CFG_hosts
--w /etc/sysconfig/network-scripts/ -p wa -k CFG_network
+-w /etc/default/network-scripts/ -p wa -k CFG_network
 
 ## system startup scripts
--w /etc/sysconfig/init -p wa -k CFG_init
+-w /etc/default/init -p wa -k CFG_init
 -w /etc/init/ -p wa -k CFG_init
 -w /etc/inittab -p wa -k CFG_inittab
--w /etc/rc.d/init.d/ -p wa -k CFG_initscripts
+-w /etc/init.d/ -p wa -k CFG_initscripts
 
 ## library search paths
 -w /etc/ld.so.conf -p wa -k CFG_ld.so.conf
@@ -301,11 +264,7 @@
 -w /etc/sudoers -k CFG_sudoers
 -w /etc/sudoers.d/ -k CFG_sudoers
 
-## xinetd configuration
--w /etc/xinetd.d/ -k CFG_xinetd.d
--w /etc/xinetd.conf -k CFG_xinetd.conf
-
-## Not specifically required by LSPP; but common sense items
+## Not specifically required by CAPP; but common sense items
 -a always,exit -F arch=b32 -S sethostname -S setdomainname
 -a always,exit -F arch=b64 -S sethostname -S setdomainname
 -w /etc/issue -p wa -k CFG_issue

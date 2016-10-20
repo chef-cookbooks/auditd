@@ -40,7 +40,7 @@
 ## audited events
 ##
 -w /etc/audit/ -p wa -k CFG_audit
--w /etc/sysconfig/auditd  -p wa -k CFG_auditd.conf
+-w /etc/default/auditd  -p wa -k CFG_auditd.conf
 -w /etc/libaudit.conf -p wa -k CFG_libaudit.conf
 -w /etc/audisp/ -p wa -k CFG_audisp
 
@@ -216,7 +216,7 @@
 ## FPT_TST.1 Self Test
 ## aide is used to verify integrity of data and executables
 ##
--w /etc/aide.conf -p wa -k CFG_aide.conf
+-w /etc/aide/ -p wa -k CFG_aide.conf
 -w /var/lib/aide/aide.db.gz -k CFG_aide.db
 -w /var/lib/aide/aide.db.new.gz -k CFG_aide.db
 -w /var/log/aide/ -p wa -k CFG_aide.log
@@ -234,7 +234,7 @@
 -w /etc/cron.monthly/ -p wa -k CFG_cron.monthly
 -w /etc/cron.weekly/ -p wa -k CFG_cron.weekly
 -w /etc/crontab -p wa -k CFG_crontab
--w /var/spool/cron/root -k CFG_crontab_root
+-w /var/spool/cron/crontabs/root -k CFG_crontab_root
 
 ## user, group, password databases
 -w /etc/group -p wa -k CFG_group
@@ -252,13 +252,13 @@
 
 ## network configuration
 -w /etc/hosts -p wa -k CFG_hosts
--w /etc/sysconfig/network-scripts/ -p wa -k CFG_network
+-w /etc/network/ -p wa -k CFG_network
 
 ## system startup scripts
--w /etc/sysconfig/init -p wa -k CFG_init
+-w /etc/default/init -p wa -k CFG_init
 -w /etc/init/ -p wa -k CFG_init
 -w /etc/inittab -p wa -k CFG_inittab
--w /etc/rc.d/init.d/ -p wa -k CFG_initscripts
+-w /etc/init.d/ -p wa -k CFG_initscripts
 
 ## library search paths
 -w /etc/ld.so.conf -p wa -k CFG_ld.so.conf
