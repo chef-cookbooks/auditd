@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of auditd.
 
+## 1.0.1 (2016-11-25)
+- Enable use_inline_resources in the LWRPs
+- Run integration testing in Travis
+
 ## 1.0.0 (2016-09-08)
 
 - Testing updates
