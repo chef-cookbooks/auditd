@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+use_inline_resources
+
 # provider for installing audit rules from a template
 action :create do
   template '/etc/audit/audit.rules' do

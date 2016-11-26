@@ -19,6 +19,8 @@
 
 # provider for installing audit templates provided by auditd package
 
+use_inline_resources
+
 action :create do
   case node['platform_family']
   when 'rhel'
