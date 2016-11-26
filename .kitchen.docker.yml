@@ -88,6 +88,24 @@ platforms:
       - RUN zypper --non-interactive install aaa_base perl-Getopt-Long-Descriptive which hostname
 
 suites:
-  - name: default
-    run_list:
-      - recipe[yum-atrpms::default]
+- name: default
+  run_list:
+  - recipe[auditd]
+
+- name: rules
+  run_list:
+  - recipe[auditd::rules]
+
+- name: stig-rules
+  run_list:
+  - recipe[auditd::rules]
+  attributes:
+    auditd:
+      ruleset: "stig"
+
+- name: capp-rules
+  run_list:
+  - recipe[auditd::rules]
+  attributes:
+    auditd:
+      ruleset: "capp"
