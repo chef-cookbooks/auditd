@@ -1,8 +1,8 @@
 # Encoding: utf-8
-# Cookbook Name:: auditd
+# Cookbook:: auditd
 # Provider:: auditd_builtins
 #
-# Copyright 2012, Heavy Water Operations, LLC.
+# Copyright:: 2012-2016, Heavy Water Operations, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
