@@ -12,5 +12,4 @@ end
 
 source_url 'https://github.com/chef-cookbooks/auditd'
 issues_url 'https://github.com/chef-cookbooks/auditd/issues'
-
 chef_version '>= 12.1'
