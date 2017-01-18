@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: auditd
+# Cookbook:: auditd
 # Provider:: auditd_ruleset
 #
-# Copyright 2012, Heavy Water Operations, LLC.
+# Copyright:: 2012-2016, Heavy Water Operations, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,6 +16,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+use_inline_resources
 
 # provider for installing audit rules from a template
 action :create do
