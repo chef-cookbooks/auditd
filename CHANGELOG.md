@@ -2,7 +2,12 @@
 
 This file is used to list changes made in each version of auditd.
 
+## 1.0.2 (2017-01-18)
+
+- Add ChefSpec matchers
+
 ## 1.0.1 (2016-11-25)
+
 - Enable use_inline_resources in the LWRPs
 - Run integration testing in Travis
 
