@@ -6,13 +6,10 @@ provisioner:
 
 platforms:
   - name: centos-6.8
-  - name: centos-7.2
+  - name: centos-7.3
   - name: debian-7.11
   - name: debian-8.6
   - name: fedora-25
-    run_list: yum::dnf_yum_compat
-  - name: ubuntu-12.04
-    run_list: apt::default
   - name: ubuntu-14.04
     run_list: apt::default
   - name: ubuntu-16.04
