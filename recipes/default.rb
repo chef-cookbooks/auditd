@@ -23,8 +23,5 @@ package auditd_package_name_for(node['platform_family'])
 
 service 'auditd' do
   supports [:start, :stop, :restart, :reload, :status]
-  if node['platform_family'] == 'rhel' && node['platform_version'].to_f >= 7
-    restart_command 'service auditd restart'
-  end
   action :enable
 end
