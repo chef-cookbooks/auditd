@@ -17,7 +17,21 @@
 # limitations under the License.
 #
 
-actions :create
-default_action :create
+property :name, String, name_attribute: true
 
-attribute :name, kind_of: String, name_attribute: true
+action :create do
+  case node['platform_family']
+  when 'rhel', 'fedora'
+    # auditd_version = `/sbin/aureport -v`.split(' ').last
+
+    template '/etc/audit/audit.rules' do
+      source "#{new_resource.name}.rules.erb"
+      notifies :restart, 'service[auditd]'
+    end
+  else
+    execute "installing ruleset #{new_resource.name}" do
+      command "zcat /usr/share/doc/auditd/examples/#{new_resource.name}.rules.gz > /etc/audit/audit.rules"
+      notifies :restart, 'service[auditd]'
+    end
+  end
+end

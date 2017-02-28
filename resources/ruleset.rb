@@ -17,8 +17,13 @@
 # limitations under the License.
 #
 
-actions :create
-default_action :create
+property :name, String, name_attribute: true
+property :cookbook, String
 
-attribute :name, kind_of: String, name_attribute: true
-attribute :cookbook, kind_of: String, default: nil
+action :create do
+  template '/etc/audit/audit.rules' do
+    source "#{new_resource.name}.erb"
+    cookbook new_resource.cookbook if new_resource.cookbook
+    notifies :restart, 'service[auditd]'
+  end
+end
