@@ -2,7 +2,7 @@
 # Cookbook:: auditd
 # Recipe:: remove
 #
-# Copyright:: 2016, PagerDuty
+# Copyright:: 2016-2017, PagerDuty
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
