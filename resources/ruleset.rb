@@ -21,7 +21,9 @@ property :name, String, name_attribute: true
 property :cookbook, String
 
 action :create do
-  template '/etc/audit/audit.rules' do
+  extend AuditD::Helper
+
+  template auditd_rulefile(new_resource.name) do
     source "#{new_resource.name}.erb"
     cookbook new_resource.cookbook if new_resource.cookbook
     notifies :restart, 'service[auditd]'

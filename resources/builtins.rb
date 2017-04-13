@@ -20,11 +20,13 @@
 property :name, String, name_attribute: true
 
 action :create do
+  extend AuditD::Helper
+
   case node['platform_family']
   when 'rhel', 'fedora'
     # auditd_version = `/sbin/aureport -v`.split(' ').last
 
-    template '/etc/audit/audit.rules' do
+    template auditd_rulefile do
       source "#{new_resource.name}.rules.erb"
       notifies :restart, 'service[auditd]'
     end

@@ -22,6 +22,7 @@ extend AuditD::Helper
 package auditd_package_name_for(node['platform_family'])
 
 service 'auditd' do
+  restart_command '/usr/libexec/initscripts/legacy-actions/auditd/restart' if platform_family?('rhel') && node['init_package'] == 'systemd'
   supports [:start, :stop, :restart, :reload, :status]
   action :enable
 end
