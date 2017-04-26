@@ -2,6 +2,15 @@
 
 This file is used to list changes made in each version of auditd.
 
+## 2.0.0 (2017-04-26)
+
+- Convert the existing LWRPs to custom resources, which raises the requires chef version to 12.5+
+- Expand testing to cover the custom resources
+- Let Chef can determine the proper restart command instead of hardcoding logic into the recipe
+- Test with local delivery and not Rake
+- Update apache2 license string
+- Update copyrights
+
 ## 1.0.2 (2017-01-18)
 
 - Add ChefSpec matchers
@@ -14,7 +23,7 @@ This file is used to list changes made in each version of auditd.
 ## 1.0.0 (2016-09-08)
 
 - Testing updates
-- Require Chef 12
+- Require Chef 12.0 or later
 
 ## 0.2.0 (2016-08-11)
 
