@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of auditd.
 
+## 2.1.0 (2017-05-03)
+
+- Add support for RHEL 7
+
 ## 2.0.0 (2017-04-26)
 
 - Convert the existing LWRPs to custom resources, which raises the requires chef version to 12.5+
