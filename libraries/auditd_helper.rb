@@ -19,7 +19,7 @@ module AuditD
   module Helper
     def auditd_package_name_for(platform_family)
       case platform_family
-      when 'rhel', 'fedora'
+      when 'rhel', 'fedora', 'amazon'
         'audit'
       else
         'auditd'
