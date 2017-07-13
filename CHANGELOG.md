@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of auditd.
 
+## 2.1.1 (2017-07-13)
+
+- Install "audit" package for Amazon Linux on Chef 13
+
 ## 2.1.0 (2017-05-03)
 
 - Add support for RHEL 7
