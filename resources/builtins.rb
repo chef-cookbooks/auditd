@@ -17,7 +17,6 @@
 # limitations under the License.
 #
 
-property :name, String, name_attribute: true
 
 action :create do
   extend AuditD::Helper

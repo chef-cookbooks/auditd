@@ -17,7 +17,6 @@
 # limitations under the License.
 #
 
-property :name, String, name_attribute: true
 property :cookbook, String
 
 action :create do
