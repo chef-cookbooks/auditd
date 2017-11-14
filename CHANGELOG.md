@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of auditd.
 
+## 2.2.0 (2017-11-14)
+
+- Resolve FC108 warnings
+- Allow specifying the cookbook where the template is in the builtins resource
+- Require Chef 12.7+ due to bugs in 12.5/12.6 custom resources
+
 ## 2.1.1 (2017-07-13)
 
 - Install "audit" package for Amazon Linux on Chef 13
