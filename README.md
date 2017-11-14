@@ -20,7 +20,7 @@ The OS package provides the client side tools for working with the linux kernel 
 
 ### Chef
 
-- Chef 12.5+
+- Chef 12.7+
 
 ### Cookbooks
 
