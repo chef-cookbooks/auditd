@@ -17,6 +17,7 @@
 # limitations under the License.
 #
 
+property :cookbook, String
 
 action :create do
   extend AuditD::Helper
@@ -27,6 +28,7 @@ action :create do
 
     template auditd_rulefile do
       source "#{new_resource.name}.rules.erb"
+      cookbook new_resource.cookbook if new_resource.cookbook
       notifies :restart, 'service[auditd]'
     end
   else
