@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of auditd.
 
+## 2.3.2 (2018-07-16)
+
+- Fix support for Debian 9+ / Ubuntu 18.04+
+- Remove Chef 11/early 12 compatibility in metadata
+- Handle CIS 4.1.14 differing on CentOS/RHEL 6
+
 ## 2.3.1 (2018-07-11)
 
 - Missing -F flag was causing entire list to fail to load.
