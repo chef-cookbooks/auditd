@@ -27,8 +27,11 @@ module AuditD
     end
 
     def auditd_rulefile(ruleset = 'audit.rules')
-      return ::File.join('/etc/audit/rules.d/', ruleset) if platform_family?('rhel') && node['platform_version'].to_i >= 7
-      '/etc/audit/audit.rules'
+      if platform_family?('rhel') && node['platform_version'].to_i >= 7 || platform?('ubuntu') && node['platform_version'].to_f >= 18.04 || platform?('debian') && node['platform_version'].to_i >= 9
+        ::File.join('/etc/audit/rules.d/', ruleset)
+      else
+        '/etc/audit/audit.rules'
+      end
     end
   end
 end
