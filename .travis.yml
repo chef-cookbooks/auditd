@@ -16,16 +16,18 @@ branches:
 
 services: docker
 
-env:
-  matrix:
-  - INSTANCE=default-centos-6
-  - INSTANCE=default-centos-7
-  - INSTANCE=default-debian-8
-  - INSTANCE=default-debian-9
-  - INSTANCE=default-fedora-latest
-  - INSTANCE=default-ubuntu-1404
-  - INSTANCE=default-ubuntu-1604
-  - INSTANCE=default-ubuntu-1804
+# disable these until we can get docker working with this cookbook
+#
+#env:
+#  matrix:
+#  - INSTANCE=default-centos-6
+#  - INSTANCE=default-centos-7
+#  - INSTANCE=default-debian-8
+#  - INSTANCE=default-debian-9
+#  - INSTANCE=default-fedora-latest
+# - INSTANCE=default-ubuntu-1404
+# - INSTANCE=default-ubuntu-1604
+# - INSTANCE=default-ubuntu-1804
 
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
