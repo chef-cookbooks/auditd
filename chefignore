@@ -31,38 +31,24 @@ tmtags
 .settings
 mkmf.log
 
-## COMPILED ##
-##############
-a.out
-*.o
-*.pyc
-*.so
-*.com
-*.class
-*.dll
-*.exe
-*/rdoc/
-
 # Testing #
 ###########
-.watchr
 .rspec
 spec/*
 spec/fixtures/*
 test/*
-features/*
 examples/*
-Guardfile
 Procfile
 kitchen*
+.kitchen*
 .rubocop.yml
 spec/*
-Rakefile
 .travis.yml
 .foodcritic
-.codeclimate.yml
+appveyor.yml
+Gemfile
 
-# SCM #
+# Git #
 #######
 .git
 */.git
@@ -70,10 +56,6 @@ Rakefile
 .gitmodules
 .gitconfig
 .gitattributes
-.svn
-*/.bzr/*
-*/.hg/*
-*/.svn/*
 
 # Berkshelf #
 #############
@@ -92,15 +74,3 @@ Policyfile.lock.json
 CONTRIBUTING*
 CHANGELOG*
 TESTING*
-
-# Strainer #
-############
-Colanderfile
-Strainerfile
-.colander
-.strainer
-
-# Vagrant #
-###########
-.vagrant
-Vagrantfile
