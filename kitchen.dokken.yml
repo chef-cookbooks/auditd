@@ -30,6 +30,7 @@ platforms:
     pid_one_command: /bin/systemd
     intermediate_instructions:
       - RUN /usr/bin/apt-get update
+      - RUN /usr/bin/apt-get install sudo cron -y
 
 - name: debian-9
   driver:
@@ -37,6 +38,7 @@ platforms:
     pid_one_command: /bin/systemd
     intermediate_instructions:
       - RUN /usr/bin/apt-get update
+      - RUN /usr/bin/apt-get install sudo cron -y
 
 - name: centos-6
   driver:
@@ -59,6 +61,7 @@ platforms:
     pid_one_command: /sbin/init
     intermediate_instructions:
       - RUN /usr/bin/apt-get update
+      - RUN /usr/bin/apt-get install sudo cron -y
 
 - name: ubuntu-16.04
   driver:
@@ -66,6 +69,7 @@ platforms:
     pid_one_command: /bin/systemd
     intermediate_instructions:
       - RUN /usr/bin/apt-get update
+      - RUN /usr/bin/apt-get install sudo cron -y
 
 - name: ubuntu-18.04
   driver:
@@ -73,6 +77,7 @@ platforms:
     pid_one_command: /bin/systemd
     intermediate_instructions:
       - RUN /usr/bin/apt-get update
+      - RUN /usr/bin/apt-get install sudo cron -y
 
 - name: opensuse-leap
   driver:
