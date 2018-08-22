@@ -53,3 +53,13 @@ suites:
   verifier:
     inspec_tests:
       - test/integration/capp
+
+- name: cis-rules
+  run_list:
+  - recipe[auditd::rules]
+  attributes:
+    auditd:
+      ruleset: "cis"
+  verifier:
+    inspec_tests:
+      - test/integration/cis
