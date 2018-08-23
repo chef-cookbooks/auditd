@@ -25,6 +25,6 @@ action :create do
   template auditd_rulefile(new_resource.name) do
     source "#{new_resource.name}.erb"
     cookbook new_resource.cookbook if new_resource.cookbook
-    notifies :restart, 'service[auditd]'
+    notifies :restart, 'service[auditd]', :immediately
   end
 end

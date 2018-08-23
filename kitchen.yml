@@ -57,6 +57,7 @@ suites:
 - name: cis-rules
   run_list:
   - recipe[auditd::rules]
+  - recipe[auditd::conf]
   attributes:
     auditd:
       ruleset: "cis"
