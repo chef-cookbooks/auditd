@@ -3,7 +3,7 @@
 # Cookbook:: auditd
 # Resource:: auditd_conf_file
 #
-# Copyright:: 2012-2017, Heavy Water Operations, LLC.
+# Copyright:: 2018, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,12 +19,13 @@
 #
 
 property :cookbook, String
+property :path, String, name_property: true
 
 action :create do
   extend AuditD::Helper
 
-  template new_resource.name do
-    source "cis.auditd.conf.erb"
+  template new_resource.path do
+    source 'cis.auditd.conf.erb'
     cookbook new_resource.cookbook if new_resource.cookbook
     owner 'root'
     group 'root'
