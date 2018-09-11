@@ -1,7 +1,7 @@
 #
 # Cookbook:: auditd
 # Resource:: auditd_conf_file
-
+#
 property :cookbook, String
 
 action :create do
