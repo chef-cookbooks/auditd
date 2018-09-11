@@ -33,5 +33,14 @@ module AuditD
         '/etc/audit/audit.rules'
       end
     end
+
+    def auditd_conffile(conf_file = 'audit.conf')
+      if platform_family?('rhel') && node['platform_version'].to_i >= 6
+        ::File.join('/etc/audit/', conf_file)
+      else
+        '/etc/audit/auditd.conf'
+      end
+    end
+
   end
 end
