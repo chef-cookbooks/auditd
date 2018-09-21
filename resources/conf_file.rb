@@ -1,8 +1,8 @@
 #
 # Cookbook:: auditd
-# Resource:: auditd_ruleset
+# Resource:: auditd_conf_file
 #
-# Copyright:: 2012-2017, Heavy Water Operations, LLC.
+# Copyright:: 2018, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,9 +22,9 @@ property :cookbook, String
 action :create do
   extend AuditD::Helper
 
-  template auditd_rulefile(new_resource.name) do
-    source "#{new_resource.name}.erb"
+  template auditd_conffile(new_resource.name) do
+    source "#{new_resource.name}.conf.erb"
     cookbook new_resource.cookbook if new_resource.cookbook
-    notifies :restart, 'service[auditd]', :immediately
+    notifies :reload, 'service[auditd]'
   end
 end
