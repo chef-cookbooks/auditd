@@ -11,7 +11,7 @@ end
 # => Audit Rules should have some Content
 describe file('/etc/audit/audit.rules') do
   it { should be_file }
-  its('content') { should match(%r{-a always,exit -F arch=b32 -S init_module -S delete_module -k modules}) }
+  its('content') { should match(/-a always,exit -F arch=b32 -S init_module -S delete_module -k modules/) }
 end
 
 # => Audit Rules should have some Content
@@ -30,5 +30,5 @@ describe file('/etc/audit/auditd.conf') do
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
   its('mode') { should cmp '0640' }
-  its('content') { should match(%r{\# This file is managed using Chef.}) }
+  its('content') { should match(/\# This file is managed using Chef./) }
 end
