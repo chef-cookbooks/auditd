@@ -1,7 +1,6 @@
 # Encoding: UTF-8
 # AuditD CIS - Smoke Test
 
-
 # Service
 describe service('auditd') do
   it { should be_installed }

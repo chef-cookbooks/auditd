@@ -41,6 +41,5 @@ module AuditD
         '/etc/audit/auditd.conf'
       end
     end
-
   end
 end
