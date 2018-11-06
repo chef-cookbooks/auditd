@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of auditd.
 
+## 2.3.4 (2018-11-8)
+
+- Added CIS-rules kitchen suite
+- Updated CIS rules to match RHEL/CentOS 7 v2.2.0 benchmarks
+- Added resource to implement CIS defined auditd conf
+- CIS related remediation will only run if "node['auditd']['ruleset']" is set to CIS
+
 ## 2.3.3 (2018-07-17)
 
 - Fix ~= typo in CIS rules
