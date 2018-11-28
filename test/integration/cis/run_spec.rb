@@ -33,3 +33,8 @@ describe file('/etc/audit/auditd.conf') do
   its('mode') { should cmp '0640' }
   its('content') { should match(%r{\# This file is managed using Chef.}) }
 end
+
+# => Ensure no errors loading the Auditd Configuration
+describe command('/sbin/augenrules --load') do
+  its('exit_status') { should eq 0 }
+end
