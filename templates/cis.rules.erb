@@ -107,7 +107,11 @@
 -a always,exit -F path=/sbin/unix_chkpwd -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
 -a always,exit -F path=/sbin/netreport -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
 -a always,exit -F path=/sbin/pam_timestamp_check -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
--a always,exit -F path=/lib64/dbus-1/dbus-daemon-launch-helper -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
+<% dbus = [
+            '/usr/libexec/dbus-1/dbus-daemon-launch-helper',
+            '/lib64/dbus-1/dbus-daemon-launch-helper'
+          ].find { |f| ::File.exist?(f) } %>
+-a always,exit -F path=<%= dbus %> -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged
 
 # CIS 4.1.18
 -e 2
