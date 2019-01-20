@@ -18,7 +18,6 @@ services: docker
 
 env:
   matrix:
-  - INSTANCE=default-ubuntu-1404
   - INSTANCE=default-ubuntu-1604
   - INSTANCE=default-ubuntu-1804
 
