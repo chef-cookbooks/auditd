@@ -22,7 +22,7 @@ extend AuditD::Helper
 package auditd_package_name_for(node['platform_family'])
 
 service 'auditd' do
-  if platform_family?('rhel') && node['init_package'] == 'systemd' && node['platform_version'] <= '7.4'
+  if platform_family?('rhel') && node['init_package'] == 'systemd' && node['platform_version'] < '7.5'
     reload_command '/usr/libexec/initscripts/legacy-actions/auditd/reload'
     restart_command '/usr/libexec/initscripts/legacy-actions/auditd/restart'
   end
