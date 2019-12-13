@@ -31,24 +31,37 @@ tmtags
 .settings
 mkmf.log
 
+## COMPILED ##
+##############
+a.out
+*.o
+*.pyc
+*.so
+*.com
+*.class
+*.dll
+*.exe
+*/rdoc/
+
 # Testing #
 ###########
 .rspec
 spec/*
 spec/fixtures/*
 test/*
+features/*
 examples/*
 Procfile
-kitchen*
 .kitchen*
+kitchen*
 .rubocop.yml
 spec/*
 .travis.yml
 .foodcritic
 appveyor.yml
-Gemfile
+Rakefile
 
-# Git #
+# SCM #
 #######
 .git
 */.git
@@ -56,6 +69,10 @@ Gemfile
 .gitmodules
 .gitconfig
 .gitattributes
+.svn
+*/.bzr/*
+*/.hg/*
+*/.svn/*
 
 # Berkshelf #
 #############

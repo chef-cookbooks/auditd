@@ -51,6 +51,11 @@ platforms:
     image: dokken/centos-7
     pid_one_command: /usr/lib/systemd/systemd
 
+- name: centos-8
+  driver:
+    image: dokken/centos-8
+    pid_one_command: /usr/lib/systemd/systemd
+
 - name: fedora-latest
   driver:
     image: dokken/fedora-latest
@@ -72,7 +77,7 @@ platforms:
       - RUN /usr/bin/apt-get update
       - RUN /usr/bin/apt-get install sudo cron -y
 
-- name: opensuse-leap
+- name: opensuse-leap-15
   driver:
-    image: dokken/opensuse-leap
+    image: dokken/opensuse-leap-15
     pid_one_command: /bin/systemd

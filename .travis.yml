@@ -7,6 +7,9 @@ addons:
 
 install: echo "skip bundle install"
 
+env:
+  - CHEF_LICENSE=accept
+
 branches:
   only:
     - master
@@ -29,4 +32,6 @@ matrix:
   include:
     - script:
       - delivery local all
-      env: UNIT_AND_LINT=1
+      env:
+        - UNIT_AND_LINT=1
+        - CHEF_LICENSE=accept
