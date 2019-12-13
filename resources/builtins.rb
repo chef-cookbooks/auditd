@@ -22,8 +22,7 @@ property :cookbook, String
 action :create do
   extend AuditD::Helper
 
-  case node['platform_family']
-  when 'rhel', 'fedora'
+  if platform_family?('rhel', 'fedora')
     # auditd_version = `/sbin/aureport -v`.split(' ').last
 
     template auditd_rulefile do
