@@ -2,6 +2,14 @@
 
 This file is used to list changes made in each version of auditd.
 
+## 2.4.0 (2020-03-06)
+
+- Fix RHEL support - [@bdwyertech](https://github.com/bdwyertech)
+- added logic to check for rhel platform_version greater than or equal to 7.5 and modify auditd restart command accordingly - [@danielcbright](https://github.com/danielcbright)
+- Cookstyle fixes - [@tas50](https://github.com/tas50)
+- Simplify platform check logic - [@tas50](https://github.com/tas50)
+- Require Chef 12.15+ instead of 12.7+ - [@tas50](https://github.com/tas50)
+
 ## 2.3.4 (2018-11-8)
 
 - Add CIS-rules kitchen suite
