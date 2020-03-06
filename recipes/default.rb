@@ -21,7 +21,7 @@ extend AuditD::Helper
 
 package auditd_package_name_for(node['platform_family'])
 
-# There is a specific issue with RHEL7 (https://bugzilla.redhat.com/show_bug.cgi?id=1647521) where 
+# There is a specific issue with RHEL7 (https://bugzilla.redhat.com/show_bug.cgi?id=1647521) where
 # auditd fails to stop/start/restart/reload using systemctl. This logic will set the correct reload
 # and restart actions for this recipe when it detects you are using RHEL7.x
 service 'auditd' do
