@@ -1,4 +1,3 @@
-# Encoding: UTF-8
 # AuditD STIG - Smoke Test
 
 # Service
