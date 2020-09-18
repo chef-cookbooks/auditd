@@ -1,4 +1,3 @@
-# Encoding: utf-8
 # Cookbook:: auditd
 #
 # Copyright:: 2012-2017, Heavy Water Operations, LLC.

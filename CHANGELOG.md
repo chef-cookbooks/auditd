@@ -2,6 +2,15 @@
 
 This file is used to list changes made in each version of auditd.
 
+## Unreleased
+
+- resolved cookstyle error: attributes/default.rb:1:1 convention: `Style/Encoding`
+- resolved cookstyle error: libraries/auditd_helper.rb:1:1 convention: `Style/Encoding`
+- resolved cookstyle error: test/integration/capp/run_spec.rb:1:1 convention: `Style/Encoding`
+- resolved cookstyle error: test/integration/cis/run_spec.rb:1:1 convention: `Style/Encoding`
+- resolved cookstyle error: test/integration/default/run_spec.rb:1:1 convention: `Style/Encoding`
+- resolved cookstyle error: test/integration/stig/run_spec.rb:1:1 convention: `Style/Encoding`
+
 ## 2.4.0 (2020-03-06)
 
 - Fix RHEL support - [@bdwyertech](https://github.com/bdwyertech)

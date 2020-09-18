@@ -1,4 +1,3 @@
-# Encoding: utf-8
 # Cookbook:: auditd
 #
 # Copyright:: 2016-2017, PagerDuty

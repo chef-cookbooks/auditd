@@ -1,4 +1,3 @@
-# Encoding: UTF-8
 # AuditD CIS - Smoke Test
 
 # Service
