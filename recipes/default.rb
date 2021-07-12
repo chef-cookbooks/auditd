@@ -33,6 +33,10 @@ service 'auditd' do
     reload_command '/usr/sbin/service auditd reload'
     restart_command '/usr/sbin/service auditd restart'
   end
+  if platform_family?('debian') && node['init_package'] == 'systemd' && node['platform_version'] >= '20.04'
+    reload_command '/usr/sbin/service auditd reload'
+    restart_command '/usr/sbin/service auditd restart'
+  end
   supports [:start, :stop, :restart, :reload, :status]
   action :enable
 end
