@@ -25,11 +25,11 @@ package auditd_package_name_for(node['platform_family'])
 # auditd fails to stop/start/restart/reload using systemctl. This logic will set the correct reload
 # and restart actions for this recipe when it detects you are using RHEL7.x
 service 'auditd' do
-  if platform_family?('rhel') && node['init_package'] == 'systemd' && node['platform_version'] < '7.5'
+  if platform_family?('rhel') && systemd? && node['platform_version'] < '7.5'
     reload_command '/usr/libexec/initscripts/legacy-actions/auditd/reload'
     restart_command '/usr/libexec/initscripts/legacy-actions/auditd/restart'
   end
-  if platform_family?('rhel') && node['init_package'] == 'systemd' && node['platform_version'] >= '7.5'
+  if platform_family?('rhel') && systemd? && node['platform_version'] >= '7.5'
     reload_command '/usr/sbin/service auditd reload'
     restart_command '/usr/sbin/service auditd restart'
   end
