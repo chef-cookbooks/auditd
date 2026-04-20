@@ -19,6 +19,8 @@
 
 property :cookbook, String
 
+unified_mode true
+
 action :create do
   extend AuditD::Helper
 

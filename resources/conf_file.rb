@@ -19,6 +19,8 @@
 
 property :cookbook, String
 
+unified_mode true
+
 action :create do
   template '/etc/audit/auditd.conf' do
     source "#{new_resource.name}.conf.erb"
